@@ -1,1 +1,2 @@
-craphlite.so
+*.so
+src/*.o

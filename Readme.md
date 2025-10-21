@@ -23,4 +23,44 @@ This project enables you to **query and analyze graph-structured data using SQL*
 | **Edge Insert/Delete Hooks** | Maintain internal adjacency lists and caches when edges are modified. |
 | **Graph Virtual Table** | Query graph traversals as if they were standard SQLite tables. |
 
+---
 
+## Build & Development
+
+This project uses a **Makefile** to simplify compilation, testing, and code quality workflows.
+
+### Prerequisites
+- GCC or Clang compiler
+- SQLite development headers (`libsqlite3-dev` on Linux)
+- `pkg-config` for SQLite
+- Optional: `clang-format` and `cppcheck` for formatting and linting
+
+---
+
+### Makefile Commands
+
+| Command | Description |
+|---------|-------------|
+| `make` | Build the **release version** of `craphlite.so` with optimizations. |
+| `make debug` | Build a **debug version** with debug symbols and compiler warnings enabled. |
+| `make clean` | Remove compiled objects and the shared library. |
+| `make test` | Load the extension in an in-memory SQLite database to verify it works. |
+| `make lint` | Run `cppcheck` to detect potential code issues and bugs. |
+| `make format` | Format all source and header files using `clang-format`. |
+
+---
+
+### Example Workflow
+
+```bash
+# Format code
+make format
+
+# Check code quality
+make lint
+
+# Build debug version
+make debug
+
+# Test extension loads correctly in SQLite
+make test
